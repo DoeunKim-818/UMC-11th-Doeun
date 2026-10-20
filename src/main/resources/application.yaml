@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: movieumc
+  datasource:
+    url: jdbc:mysql://localhost:3306/umcdb
+    username: root
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
