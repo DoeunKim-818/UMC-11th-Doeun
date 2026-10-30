@@ -15,16 +15,20 @@ export function Header() {
         <nav>
           <ul className="flex items-center gap-[30px] text-sm font-bold">
             <li>
-              <Link to="/" className="text-[#17191E] underline">
+              <Link to="/" activeOptions={{ exact: true }} {...navLinkProps}>
                 영화
               </Link>
             </li>
             <li>
-              <Link to="/search" className="text-[#606774] hover:text-[#17191E]">
+              <Link to="/search" {...navLinkProps}>
                 검색
               </Link>
             </li>
-            <li className="text-[#606774]">내 정보</li>
+            <li>
+              <Link to="/my" {...navLinkProps}>
+                내 정보
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -36,10 +40,20 @@ export function Header() {
         >
           <img src="/icons/search.svg" alt="" className="h-6 w-6 opacity-70" />
         </Link>
-        <button className="h-[42px] rounded-lg border border-white bg-[#2563EB] px-4 text-sm font-extrabold text-white">
+        <Link
+          to="/login"
+          className="flex h-[42px] items-center rounded-lg border border-white bg-[#2563EB] px-4 text-sm font-extrabold text-white"
+        >
           로그인
-        </button>
+        </Link>
       </div>
     </header>
   );
 }
+
+// 현재 페이지 메뉴는 진하게 밑줄, 나머지는 회색
+const navLinkProps = {
+  className: "hover:text-[#17191E]",
+  activeProps: { className: "text-[#17191E] underline" },
+  inactiveProps: { className: "text-[#606774]" },
+};
